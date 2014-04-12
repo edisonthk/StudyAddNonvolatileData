@@ -1,6 +1,7 @@
-Study of Segue 
+Study of Non-volatile data
 ============
 
-segue is action of moving from view to another view.
+Adding data to local storage and make it not vanish when memory is free
 
-Study segue 
+Study about non-volatile data adding
+
