@@ -88,6 +88,15 @@
     MyItem* item = [self.data objectAtIndex:indexPath.row];
     cell.textLabel.text = item.itemName;
     
+    // create item to row
+    if(item.completed){
+        // create checkmark to row
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        // remove all item including checkmark in row
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -140,5 +149,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Table view delegate
+// invoked when cells pressed
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    NSLog(@"Row selected at %i", indexPath.row);
+    
+    MyItem* item = [self.data objectAtIndex:indexPath.row];
+    
+    // toggle item completed
+    item.completed = !item.completed;
+    
+    // tell the table view to reload the row updated
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
 
 @end
