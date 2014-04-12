@@ -7,8 +7,11 @@
 //
 
 #import "MyUiTableTableViewController.h"
+#import "MyItem.h"
 
 @interface MyUiTableTableViewController ()
+
+@property NSMutableArray *data;
 
 @end
 
@@ -27,11 +30,9 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.data = [[NSMutableArray alloc]init];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,16 +45,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return [self.data count];
 }
 
 -(IBAction)unwindToList:(UIStoryboardSegue *)segues
@@ -61,16 +61,36 @@
     NSLog(@"unwind to list");
 }
 
-/*
+-(void)loadInitialData
+{
+    MyItem* item1 = [[MyItem alloc]init];
+    item1.itemName = @"first";
+    [self.data addObject:item1];
+    
+    
+    MyItem* item2 = [[MyItem alloc]init];
+    item2.itemName = @"second";
+    [self.data addObject:item2];
+    
+    
+    MyItem* item3 = [[MyItem alloc]init];
+    item3.itemName = @"third";
+    [self.data addObject:item3];
+    
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *cellIdentified = @"ListPrototypeCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentified forIndexPath:indexPath];
     
-    // Configure the cell...
+    MyItem* item = [self.data objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.itemName;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

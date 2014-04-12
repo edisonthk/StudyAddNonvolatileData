@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--My View Controller-->
+        <!--My View Controller - Second Page-->
         <scene sceneID="mC9-Zt-Ayc">
             <objects>
                 <viewController id="w2s-Sn-NYS" customClass="MyViewController" sceneMemberID="viewController">
@@ -16,23 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euJ-8i-BoO">
-                                <rect key="frame" x="138" y="268" width="72" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NHr-jG-6sr">
+                                <rect key="frame" x="112" y="260" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="My Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYr-kW-Hiv">
-                                <rect key="frame" x="140" y="169" width="77" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="b6i-mq-cM1">
+                    <navigationItem key="navigationItem" title="Second Page" id="b6i-mq-cM1">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="rT2-te-OCw">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="EyC-kX-VfF">
                                 <rect key="frame" x="16" y="11" width="22" height="22"/>
@@ -49,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="1403" y="85"/>
         </scene>
-        <!--My Ui Table Table View Controller - Titile-->
+        <!--My Ui Table Table View Controller - First Page-->
         <scene sceneID="KNw-Fz-udI">
             <objects>
                 <tableViewController id="xrR-hc-ilR" customClass="MyUiTableTableViewController" sceneMemberID="viewController">
@@ -57,13 +50,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" id="Z7k-hg-fnc">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7k-hg-fnc" id="073-la-SE1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="xrR-hc-ilR" id="IPV-XO-s4c"/>
                             <outlet property="delegate" destination="xrR-hc-ilR" id="pXw-0F-O6K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Titile" id="yP2-1U-ft1">
+                    <navigationItem key="navigationItem" title="First Page" id="yP2-1U-ft1">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="62J-fP-f6E">
                             <connections>
                                 <segue destination="w2s-Sn-NYS" kind="push" id="czZ-vw-Tt1"/>
