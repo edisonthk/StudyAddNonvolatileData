@@ -1,4 +1,6 @@
-testforclass
+Study of Segue 
 ============
 
-Study class and object in objective C
+segue is action of moving from view to another view.
+
+Study segue 
