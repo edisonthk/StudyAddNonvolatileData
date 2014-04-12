@@ -7,6 +7,7 @@
 //
 
 #import "MyUiTableTableViewController.h"
+#import "MyViewController.h"
 #import "MyItem.h"
 
 @interface MyUiTableTableViewController ()
@@ -56,9 +57,22 @@
     return [self.data count];
 }
 
+// custom method, bind it to segues in storyboard
 -(IBAction)unwindToList:(UIStoryboardSegue *)segues
 {
     NSLog(@"unwind to list");
+    
+    // same as "getIntent().getData() returned bundle" in android
+    // get the public data from MyViewController.h
+    MyViewController* source = [segues sourceViewController];
+    MyItem *item = source.item;
+    if(item != nil){
+        [self.data addObject:item];
+        
+        // reload tableView
+        // same as notifyDataSetChanged in android
+        [self.tableView reloadData];
+    }
 }
 
 -(void)loadInitialData

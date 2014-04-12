@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyItem.h"
 
 @interface MyViewController : UIViewController
+
+// public item, MuUiTableViewController can access this item
+@property MyItem* item;
 
 @end
